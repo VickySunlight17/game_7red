@@ -1,0 +1,269 @@
+.shadow {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.58);
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: popupanim;
+    animation-duration: 0.5s;
+    z-index: 10;
+}
+
+.shadow_box {
+    background-color: rgba(0, 0, 0, 0.46);
+    position: fixed;
+    display: none;
+    align-items: center;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    /* animation-name: popupanim;
+    animation-duration: 0.5s; */
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.name_of_winner {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.warning_box {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation-name: popupanim;
+    animation-duration: 0.5s;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    filter: drop-shadow(10px 8px 1px #000000);
+}
+
+.warning_box__warning_text {
+    width: 80%;
+    height: 50%;
+    /* position: fixed; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation-name: popupanim;
+    animation-duration: 0.5s;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    filter: drop-shadow(10px 8px 1px #000000);
+}
+
+.warning_text {
+    padding: 30px;
+}
+
+.ops_text {
+    margin-top: 1%;
+    font-family: Chango;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 44px;
+    color: #ffffff;
+    text-shadow: 5px 4px 1px #000000, -1px -1px 1px #000000;
+    /* border: 1px solid #000000; */
+}
+
+.shadow2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.58);
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: popupanim;
+    animation-duration: 0.5s;
+    z-index: 10;
+}
+
+.align__shadow {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* position: fixed; */
+    /* align-items: ; */
+}
+
+.shadow__text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    animation-name: popupanim;
+    animation-duration: 0.5s;
+}
+
+@keyframes popupanim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+.congrats {
+    font-family: Chango;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 87px;
+    color: #FFFFFF;
+    text-shadow: 10px 8px 1px #000000;
+}
+
+.you {
+    font-family: Chango;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FFFFFF;
+    text-shadow: 10px 8px 1px #000000;
+}
+
+.winner {
+    font-family: Chango;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 150px;
+    line-height: 182px;
+    color: #FFFFFF;
+    text-shadow: 10px 8px 1px #000000;
+}
+
+.warning_button {
+    font-family: Chango;
+    font-style: normal;
+    font-weight: normal;
+    /* font-size: 50px; */
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    /* margin: 0 auto; */
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+    width: 85%;
+    height: 70px;
+    display: block;
+    color: rgb(27, 27, 27);
+    filter: drop-shadow(10px 8px 1px #000000);
+    cursor: pointer;
+    text-decoration: none;
+    /* убирать подчёркивание у ссылок */
+    user-select: none;
+    /* убирать выделение текста */
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    outline: none;
+    width: 25%;
+    margin-bottom: 1%;
+}
+
+.warning_button:hover {
+    background-color: rgb(27, 27, 27);
+    color: rgb(255, 255, 255);
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    /* outline: none; */
+}
+
+.warning_button:active {
+    background-color: #070707;
+    color: rgb(255, 255, 255);
+}
+
+.div__buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button__end {
+    width: 25%;
+}
+
+.hide {
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    color: #dfdfdf;
+    text-decoration: none;
+    /* убирать подчёркивание у ссылок */
+    user-select: none;
+    /* убирать выделение текста */
+    border-style: none;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hide4 {
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    color: #dfdfdf;
+    text-decoration: none;
+    /* убирать подчёркивание у ссылок */
+    user-select: none;
+    /* убирать выделение текста */
+    border-style: none;
+    position: absolute;
+    left: 2.5%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hide2 {
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    color: #3f3f3f;
+    text-decoration: none;
+    /* убирать подчёркивание у ссылок */
+    user-select: none;
+    /* убирать выделение текста */
+    border-style: none;
+    position: absolute;
+    left: 95%;
+    top: 0;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hide3 {
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    color: #3f3f3f;
+    text-decoration: none;
+    /* убирать подчёркивание у ссылок */
+    user-select: none;
+    /* убирать выделение текста */
+    border-style: none;
+    position: absolute;
+    left: 97.5%;
+    cursor: pointer;
+    z-index: 100;
+}
