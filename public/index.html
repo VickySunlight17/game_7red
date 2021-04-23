@@ -1,0 +1,661 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <title>7 red</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/game.css">
+    <link type="text/css" rel="stylesheet" href="css/shadow.css">
+    <link type="text/css" rel="stylesheet" href="css/game34.css">
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+</head>
+
+<body>
+
+    <!-- Комментарий -->
+    <div class="wrap_content">
+        <div class="red7">
+
+            <img class="red" src="imgs/logo.png" alt="7Red">
+            <!-- class="red" -->
+        </div>
+
+
+
+
+        <div id="enter_your_name" class="regist enter__name">
+            <p class="text-reg">
+                Введи свое имя, чтобы друзья могли тебя узнать!
+            </p>
+            <form name="regname" method="POST" action="/">
+                <input name="regname" type="text" class="input__name" autocomplete="on" placeholder="Имя...">
+            </form>
+
+            <button id="next" type="button"><p class="b-text">Далее</p>  </button>
+        </div>
+
+
+
+        <div id="enter_your_password" class="regist enter__password">
+            <p class="text-reg">
+                Введи пароль, чтобы никто не смог играть за тебя!
+            </p>
+            <form name="regpw" method="POST" action="/">
+                <input name="regpw" type="password" class="input__name" autocomplete="on" placeholder="Пароль...">
+                <!-- <button id="nextpw" type="submit"><p onclick="sendreg()" class="b-text">Далее</p>  </button> -->
+
+            </form>
+
+            <button id="nextpw" type="submit"><p onclick="sendreg()" class="b-text">Далее</p>  </button>
+        </div>
+        <div id="reg" class="regist choose_direction">
+            <p class="text-reg">
+                Начнем играть! Выбери свой вариант:</p>
+
+            <button id="create_game" type="button"><p class="b-text">Создать игру</p>  </button>
+            <button id="enter_game" type="button"><p class="b-text">Войти в игру</p>  </button>
+            <button id="continue_game" type="button"><p onclick="continueGame()"  class="b-text">Продолжить игру</p>  </button>
+            <!-- onclick="showGameInfoFunc()" -->
+        </div>
+
+        <div id="num_opps" class="regist num__opponents">
+            <p class="text-reg">
+                Выбери количество оппонентов:
+            </p>
+            <form name="opponents">
+                <button id="players2" type="button"><p name="opponents" onclick="NumOpps2()" class="b-text">1</p>  </button>
+                <!-- <button id="players3" type="button"><p onclick="NumOpps3()" class="b-text">2</p>  </button>
+                <button id="players4" type="button"><p onclick="NumOpps4()" class="b-text">3</p>  </button> -->
+            </form>
+        </div>
+
+        <div id="with_who_play" class="regist private">
+            <p class="text-reg">
+                С кем хочешь сыграть?
+            </p>
+
+            <form name="private">
+                <button id="with_friends" type="button"><p name="private" onclick="friends()" class="b-text">С друзями </p>  </button>
+
+                <button id="with_strangers" type="button"><p name="private" onclick="strangers()" class="b-text">С незнакомцем</p>  </button>
+            </form>
+        </div>
+
+
+
+        <div id="generic__code" class="regist generation__code">
+            <p class="text-reg">
+                Генерируем код игры....
+            </p>
+            <div class="settings">
+                <svg width="177" height="177" viewbox="0 0 177 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M88.5 110.625C100.719 110.625 110.625 100.719 110.625 88.5C110.625 76.2807 100.719 66.375 88.5 66.375C76.2807 66.375 66.375 76.2807 66.375 88.5C66.375 100.719 76.2807 110.625 88.5 110.625Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M143.075 110.625C142.093 112.849 141.8 115.317 142.234 117.709C142.668 120.102 143.809 122.309 145.509 124.047L145.951 124.49C147.323 125.86 148.411 127.487 149.153 129.277C149.895 131.068 150.277 132.987 150.277 134.926C150.277 136.864 149.895 138.783 149.153 140.574C148.411 142.365 147.323 143.991 145.951 145.361C144.581 146.733 142.955 147.821 141.164 148.563C139.373 149.305 137.454 149.687 135.516 149.687C133.577 149.687 131.658 149.305 129.867 148.563C128.077 147.821 126.45 146.733 125.08 145.361L124.637 144.919C122.899 143.219 120.692 142.078 118.299 141.644C115.907 141.21 113.439 141.503 111.215 142.485C109.034 143.42 107.173 144.972 105.863 146.951C104.553 148.929 103.849 151.248 103.84 153.621V154.875C103.84 158.787 102.286 162.539 99.5198 165.305C96.7537 168.071 93.0019 169.625 89.09 169.625C85.1781 169.625 81.4263 168.071 78.6602 165.305C75.894 162.539 74.34 158.787 74.34 154.875V154.211C74.2829 151.77 73.4927 149.403 72.0723 147.417C70.6518 145.431 68.6667 143.918 66.375 143.075C64.1506 142.093 61.6831 141.8 59.2907 142.234C56.8982 142.668 54.6906 143.809 52.9525 145.509L52.51 145.951C51.1401 147.323 49.5134 148.411 47.7227 149.153C45.9321 149.895 44.0128 150.277 42.0744 150.277C40.136 150.277 38.2166 149.895 36.426 149.153C34.6354 148.411 33.0086 147.323 31.6387 145.951C30.2673 144.581 29.1794 142.955 28.4371 141.164C27.6948 139.373 27.3128 137.454 27.3128 135.516C27.3128 133.577 27.6948 131.658 28.4371 129.867C29.1794 128.077 30.2673 126.45 31.6387 125.08L32.0812 124.637C33.7815 122.899 34.922 120.692 35.3558 118.299C35.7896 115.907 35.4967 113.439 34.515 111.215C33.5801 109.034 32.0278 107.173 30.0492 105.863C28.0705 104.553 25.7519 103.849 23.3788 103.84H22.125C18.2131 103.84 14.4613 102.286 11.6952 99.5198C8.92901 96.7537 7.375 93.0019 7.375 89.09C7.375 85.1781 8.92901 81.4263 11.6952 78.6602C14.4613 75.894 18.2131 74.34 22.125 74.34H22.7887C25.2298 74.2829 27.5973 73.4927 29.5833 72.0723C31.5694 70.6518 33.0822 68.6667 33.925 66.375C34.9067 64.1506 35.1996 61.6831 34.7658 59.2907C34.332 56.8982 33.1915 54.6906 31.4912 52.9525L31.0488 52.51C29.6773 51.1401 28.5894 49.5134 27.8471 47.7227C27.1048 45.9321 26.7228 44.0128 26.7228 42.0744C26.7228 40.136 27.1048 38.2166 27.8471 36.426C28.5894 34.6354 29.6773 33.0086 31.0488 31.6387C32.4186 30.2673 34.0454 29.1794 35.836 28.4371C37.6266 27.6948 39.546 27.3128 41.4844 27.3128C43.4228 27.3128 45.3421 27.6948 47.1327 28.4371C48.9234 29.1794 50.5501 30.2673 51.92 31.6387L52.3625 32.0812C54.1006 33.7815 56.3082 34.922 58.7007 35.3558C61.0931 35.7896 63.5606 35.4967 65.785 34.515H66.375C68.5563 33.5801 70.4166 32.0278 71.727 30.0492C73.0373 28.0705 73.7405 25.7519 73.75 23.3788V22.125C73.75 18.2131 75.304 14.4613 78.0702 11.6952C80.8363 8.92901 84.5881 7.375 88.5 7.375C92.4119 7.375 96.1637 8.92901 98.9298 11.6952C101.696 14.4613 103.25 18.2131 103.25 22.125V22.7887C103.259 25.1619 103.963 27.4805 105.273 29.4592C106.583 31.4378 108.444 32.9901 110.625 33.925C112.849 34.9067 115.317 35.1996 117.709 34.7658C120.102 34.332 122.309 33.1915 124.047 31.4912L124.49 31.0488C125.86 29.6773 127.487 28.5894 129.277 27.8471C131.068 27.1048 132.987 26.7228 134.926 26.7228C136.864 26.7228 138.783 27.1048 140.574 27.8471C142.365 28.5894 143.991 29.6773 145.361 31.0488C146.733 32.4186 147.821 34.0454 148.563 35.836C149.305 37.6266 149.687 39.546 149.687 41.4844C149.687 43.4228 149.305 45.3421 148.563 47.1327C147.821 48.9234 146.733 50.5501 145.361 51.92L144.919 52.3625C143.219 54.1006 142.078 56.3082 141.644 58.7007C141.21 61.0931 141.503 63.5606 142.485 65.785V66.375C143.42 68.5563 144.972 70.4166 146.951 71.727C148.929 73.0373 151.248 73.7405 153.621 73.75H154.875C158.787 73.75 162.539 75.304 165.305 78.0702C168.071 80.8363 169.625 84.5881 169.625 88.5C169.625 92.4119 168.071 96.1637 165.305 98.9298C162.539 101.696 158.787 103.25 154.875 103.25H154.211C151.838 103.259 149.519 103.963 147.541 105.273C145.562 106.583 144.01 108.444 143.075 110.625V110.625Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+
+            </div>
+            <button id="next_Gen_Button" type="button"><p onclick="createGame()" class="b-text">Далее</p>  </button>
+        </div>
+
+        <div id="code_n" class="regist code__game">
+            <p class="text-reg">
+                Это твой код! Отправь его своим друзьям!
+            </p>
+            <form name="myCode" method="POST">
+                <div name="myCode" class="code">?</div>
+            </form>
+            <form method="POST">
+                <a href="#"><button type="button" id="how_many_players"><p onclick="setTimeout(connectedPlayers, 3000)" class="b-text">Начать игру</p>  </button></a>
+            </form>
+        </div>
+
+        <div id="enterGame" class="regist enter__game">
+            <p class="text-reg">
+                Введи код, который скинул тебе твой друг!
+            </p>
+            <form name="enterYourCode" method="POST">
+                <input name="enterYourCode" type="text" class="input__name" placeholder="Код...">
+            </form>
+
+            <form>
+                <button id="NextName" type="button"><p onclick="connectGame()" class="b-text">Далее</p></button>
+            </form>
+
+        </div>
+
+        <div id="players_count" class="regist players_counts">
+            <p class="text-reg">
+                Список игроков:
+            </p>
+            <div class="current_players">
+
+            </div>
+
+            <p>Игра автоматически начнется, когда последний игрок войдет в игру!</p>
+        </div>
+
+
+
+
+    </div>
+
+    <!--  <form action="">
+        <button id="close" class="hide">hidewin</button></form>
+    <form action="">
+        <button id="winner" class="hide4">showwin</button></form>
+
+
+    <form action="">
+        <button id="close2" class="hide2" type="button">hidelos</button>
+    </form>
+    <form action="">
+        <button id="show2" class="hide3" type="button">showlos</button>
+    </form> -->
+
+
+    <div id="sh" class="shadow">
+        <div class="align__shadow">
+            <div class="shadow__text">
+                <p class="congrats">CONGRATULATIONS!</p>
+                <p class="you">You are the</p>
+                <p class="winner">WINNER!</p>
+
+            </div>
+
+            <!-- <p class="name_of_winner"> Оставшийся в живых: <span class="shadow__winner__name"> Виктория</span></p> -->
+
+
+
+        </div>
+
+        <div class="div__buttons">
+            <button class="button button__end"><p onclick = "playAgain()"  class="b__text">Сыграть снова </p></button>
+
+            <button class="button button__end"><p onclick = "sendLogout()" class="b__text">Выйти из системы</p></button>
+        </div>
+    </div>
+
+    <div id="loser" class="shadow2">
+        <div class="align__shadow">
+            <div class="shadow__text">
+                <p class="congrats">OOPS!!</p>
+                <p class="you">You are the</p>
+                <p class="winner">LOSER!</p>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="div__buttons">
+            <button class="button button__end"><p onclick = "playAgain()" class="b__text">Сыграть снова </p></button>
+
+            <button class="button button__end"><p onclick = "sendLogout()" class="b__text">Выйти из системы</p></button>
+        </div>
+    </div>
+
+    <div class="shadow_box">
+
+        <div class="warning_box">
+            <span class="ops_text">Oops, error!</span>
+            <div class="warning_box__warning_text">
+
+                <p class="warning_text">
+                    Ой! Кажется, ты не лидируешь по заданному правилу! Скорее меняй карту!
+                </p>
+
+            </div>
+            <button class="warning_button"><p onclick="hideWarning()" class="b__text" >OK</p></button>
+        </div>
+    </div>
+
+    <!-- НАЧАЛО ВХОДА В ИГРУ -->
+
+    <div class="wrapper">
+
+
+
+        <div class="opponent opponent1 players2">
+
+            <ul class="hand__op">
+                <li class="card__op card1__opponent">
+                    <p class="number__op card__number1">1</p>
+                </li>
+                <li class="card__op card2__opponent">
+                    <p class="number__op card__number2">2</p>
+                </li>
+                <li class="card__op card3__opponent">
+                    <p class="number__op card__number3">3</p>
+                </li>
+                <li class="card__op card4__opponent">
+                    <p class="number__op card__number4">4</p>
+                </li>
+                <li class="card__op card5__opponent">
+                    <p class="number__op card__number5">5</p>
+                </li>
+                <li class="card__op card6__opponent">
+                    <p class="number__op card__number6">6</p>
+                </li>
+                <li class="card__op card7__opponent">
+                    <p class="number__op card__number7">7</p>
+                </li>
+            </ul>
+
+
+
+            <p class="name opName1">Aleksei</p>
+
+            <ul class="palette__op">
+                <li class="pal__op palette__opponent1">
+                    <p class="num op__card__number1">1</p>
+                </li>
+                <li class="pal__op palette__opponent2">
+                    <p class="num op__card__number2">2</p>
+                </li>
+                <li class="pal__op palette__opponent3">
+                    <p class="num op__card__number3">3</p>
+                </li>
+                <li class="pal__op palette__opponent4">
+                    <p class="num op__card__number4">4</p>
+                </li>
+                <li class="pal__op palette__opponent5">
+                    <p class="num op__card__number5">5</p>
+                </li>
+                <li class="pal__op palette__opponent6">
+                    <p class="num op__card__number6">6</p>
+                </li>
+                <li class="pal__op palette__opponent7">
+                    <p class="num op__card__number7">7</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="players3">
+
+            <div class="opponent opponent1">
+
+                <ul class="hand__op">
+                    <li class="card__op card1__opponent">
+                        <p class="number__op card__number1">1</p>
+                    </li>
+                    <li class="card__op card2__opponent">
+                        <p class="number__op card__number2">2</p>
+                    </li>
+                    <li class="card__op card3__opponent">
+                        <p class="number__op card__number3">3</p>
+                    </li>
+                    <li class="card__op card4__opponent">
+                        <p class="number__op card__number4">4</p>
+                    </li>
+                    <li class="card__op card5__opponent">
+                        <p class="number__op card__number5">5</p>
+                    </li>
+                    <li class="card__op card6__opponent">
+                        <p class="number__op card__number6">6</p>
+                    </li>
+                    <li class="card__op card7__opponent">
+                        <p class="number__op card__number7">7</p>
+                    </li>
+                </ul>
+
+
+
+                <p class="name opName1">? </p>
+
+                <ul class="palette__op">
+                    <li class="pal__op palette1__opponent">
+                        <p class="num card__number1">1</p>
+                    </li>
+                    <li class="pal__op palette2__opponent">
+                        <p class="num card__number2">2</p>
+                    </li>
+                    <li class="pal__op palette3__opponent">
+                        <p class="num card__number3">3</p>
+                    </li>
+                    <li class="pal__op palette4__opponent">
+                        <p class="num card__number4">4</p>
+                    </li>
+                    <li class="pal__op palette5__opponent">
+                        <p class="num card__number5">5</p>
+                    </li>
+                    <li class="pal__op palette6__opponent">
+                        <p class="num card__number6">6</p>
+                    </li>
+                    <li class="pal__op palette7__opponent">
+                        <p class="num card__number7">7</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="opponent opponent2">
+
+                <ul class="hand__op">
+                    <li class="card__op card1__opponent">
+                        <p class="number__op card__number1">1</p>
+                    </li>
+                    <li class="card__op card2__opponent">
+                        <p class="number__op card__number2">2</p>
+                    </li>
+                    <li class="card__op card3__opponent">
+                        <p class="number__op card__number3">3</p>
+                    </li>
+                    <li class="card__op card4__opponent">
+                        <p class="number__op card__number4">4</p>
+                    </li>
+                    <li class="card__op card5__opponent">
+                        <p class="number__op card__number5">5</p>
+                    </li>
+                    <li class="card__op card6__opponent">
+                        <p class="number__op card__number6">6</p>
+                    </li>
+                    <li class="card__op card7__opponent">
+                        <p class="number__op card__number7">7</p>
+                    </li>
+                </ul>
+
+
+
+                <p class="name opName2">Коля </p>
+
+                <ul class="palette__op">
+                    <li class="pal__op palette1__opponent">
+                        <p class="num card__number1">1</p>
+                    </li>
+                    <li class="pal__op palette2__opponent">
+                        <p class="num card__number2">2</p>
+                    </li>
+                    <li class="pal__op palette3__opponent">
+                        <p class="num card__number3">3</p>
+                    </li>
+                    <li class="pal__op palette4__opponent">
+                        <p class="num card__number4">4</p>
+                    </li>
+                    <li class="pal__op palette5__opponent">
+                        <p class="num card__number5">5</p>
+                    </li>
+                    <li class="pal__op palette6__opponent">
+                        <p class="num card__number6">6</p>
+                    </li>
+                    <li class="pal__op palette7__opponent">
+                        <p class="num card__number7">7</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="players4">
+
+            <div class="opponent opponent1">
+
+                <ul class="hand__op">
+                    <li class="card__op card1__opponent">
+                        <p class="number__op card__number1">1</p>
+                    </li>
+                    <li class="card__op card2__opponent">
+                        <p class="number__op card__number2">2</p>
+                    </li>
+                    <li class="card__op card3__opponent">
+                        <p class="number__op card__number3">3</p>
+                    </li>
+                    <li class="card__op card4__opponent">
+                        <p class="number__op card__number4">4</p>
+                    </li>
+                    <li class="card__op card5__opponent">
+                        <p class="number__op card__number5">5</p>
+                    </li>
+                    <li class="card__op card6__opponent">
+                        <p class="number__op card__number6">6</p>
+                    </li>
+                    <li class="card__op card7__opponent">
+                        <p class="number__op card__number7">7</p>
+                    </li>
+                </ul>
+
+
+
+                <p class="name opName1">Aleksei </p>
+
+                <ul class="palette__op">
+                    <li class="pal__op palette__opponent1">
+                        <p class="num card__number1">1</p>
+                    </li>
+                    <li class="pal__op palette__opponent2">
+                        <p class="num card__number2">2</p>
+                    </li>
+                    <li class="pal__op palette__opponent3">
+                        <p class="num card__number3">3</p>
+                    </li>
+                    <li class="pal__op palette__opponent4">
+                        <p class="num card__number4">4</p>
+                    </li>
+                    <li class="pal__op palette__opponent5">
+                        <p class="num card__number5">5</p>
+                    </li>
+                    <li class="pal__op palette__opponent6">
+                        <p class="num card__number6">6</p>
+                    </li>
+                    <li class="pal__op palette__opponent7">
+                        <p class="num card__number7">7</p>
+                    </li>
+                </ul>
+            </div>
+            <p class="name_pos2 name opName2">Коля </p>
+            <div class="opponent opponent2 op2">
+
+                <ul class="hand__op">
+                    <li class="card__op card1__opponent">
+                        <p class="number__op card__number1">1</p>
+                    </li>
+                    <li class="card__op card2__opponent">
+                        <p class="number__op card__number2">2</p>
+                    </li>
+                    <li class="card__op card3__opponent">
+                        <p class="number__op card__number3">3</p>
+                    </li>
+                    <li class="card__op card4__opponent">
+                        <p class="number__op card__number4">4</p>
+                    </li>
+                    <li class="card__op card5__opponent">
+                        <p class="number__op card__number5">5</p>
+                    </li>
+                    <li class="card__op card6__opponent">
+                        <p class="number__op card__number6">6</p>
+                    </li>
+                    <li class="card__op card7__opponent">
+                        <p class="number__op card__number7">7</p>
+                    </li>
+                </ul>
+
+
+
+                <!-- <p class="name"> </p> -->
+
+                <ul class="palette__op">
+                    <li class="pal__op palette__opponent1">
+                        <p class="num card__number1">1</p>
+                    </li>
+                    <li class="pal__op palette__opponent2">
+                        <p class="num card__number2">2</p>
+                    </li>
+                    <li class="pal__op palette__opponent3">
+                        <p class="num card__number3">3</p>
+                    </li>
+                    <li class="pal__op palette__opponent4">
+                        <p class="num card__number4">4</p>
+                    </li>
+                    <li class="pal__op palette__opponent5">
+                        <p class="num card__number5">5</p>
+                    </li>
+                    <li class="pal__op palette__opponent6">
+                        <p class="num card__number6">6</p>
+                    </li>
+                    <li class="pal__op palette__opponent7">
+                        <p class="num card__number7">7</p>
+                    </li>
+                </ul>
+            </div>
+            <p class="name_pos3 name opName1">Петя </p>
+            <div class="opponent opponent3">
+
+
+                <ul class="hand__op">
+                    <li class="card__op card1__opponent">
+                        <p class="number__op card__number1">1</p>
+                    </li>
+                    <li class="card__op card2__opponent">
+                        <p class="number__op card__number2">2</p>
+                    </li>
+                    <li class="card__op card3__opponent">
+                        <p class="number__op card__number3">3</p>
+                    </li>
+                    <li class="card__op card4__opponent">
+                        <p class="number__op card__number4">4</p>
+                    </li>
+                    <li class="card__op card5__opponent">
+                        <p class="number__op card__number5">5</p>
+                    </li>
+                    <li class="card__op card6__opponent">
+                        <p class="number__op card__number6">6</p>
+                    </li>
+                    <li class="card__op card7__opponent">
+                        <p class="number__op card__number7">7</p>
+                    </li>
+                </ul>
+
+
+                <!-- <p class="name"> </p> -->
+
+
+                <ul class="palette__op">
+                    <li class="pal__op palette__opponent1">
+                        <p class="num card__number1">1</p>
+                    </li>
+                    <li class="pal__op palette__opponent2">
+                        <p class="num card__number2">2</p>
+                    </li>
+                    <li class="pal__op palette__opponent3">
+                        <p class="num card__number3">3</p>
+                    </li>
+                    <li class="pal__op palette__opponent4">
+                        <p class="num card__number4">4</p>
+                    </li>
+                    <li class="pal__op palette__opponent5">
+                        <p class="num card__number5">5</p>
+                    </li>
+                    <li class="pal__op palette__opponent6">
+                        <p class="num card__number6">6</p>
+                    </li>
+                    <li class="pal__op palette__opponent7">
+                        <p class="num card__number7">7</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="defence">
+            <p class="defence__card">7</p>
+        </div>
+
+        <div class="my__space">
+            <div class="rule">
+
+                <p class="p__text">Действующее правило: </p>
+                <div class="rule__box">
+                    <p class="rule__box__text"><span class="color_of_rule">Голубое</span> правило:
+                        <br> <span class="the_Rule">Больше всего <br> карт разных цветов</span></p>
+
+                </div>
+            </div>
+
+
+            <div class="my__game">
+
+                <p class="name">Ваша палитра </p>
+
+                <ul class="my__palette">
+                    <li class="my__pal my__palette1">
+                        <p class="num my__card__number1">1</p>
+                    </li>
+                    <li class="my__pal my__palette2">
+                        <p class="num my__card__number2">2</p>
+                    </li>
+                    <li class="my__pal my__palette3">
+                        <p class="num my__card__number3">3</p>
+                    </li>
+                    <li class="my__pal my__palette4">
+                        <p class="num my__card__number4">4</p>
+                    </li>
+                    <li class="my__pal my__palette5">
+                        <p class="num my__card__number5">5</p>
+                    </li>
+                    <li class="my__pal my__palette6">
+                        <p class="num my__card__number6">6</p>
+                    </li>
+                    <li class="my__pal my__palette7">
+                        <p class="num my__card__number7">7</p>
+                    </li>
+                </ul>
+
+                <p class="name myName">?</p>
+
+                <ul class="my__hand__cards">
+                    <li class="my__hand my__card1">
+                        <p class="my__num my__hand__card__number1">1</p>
+                    </li>
+                    <li class="my__hand my__card2">
+                        <p class="my__num my__hand__card__number2">2</p>
+                    </li>
+                    <li class="my__hand my__card3">
+                        <p class="my__num my__hand__card__number3">3</p>
+                    </li>
+                    <li class="my__hand my__card4">
+                        <p class="my__num my__hand__card__number4">4</p>
+                    </li>
+                    <li class="my__hand my__card5">
+                        <p class="my__num my__hand__card__number5">5</p>
+                    </li>
+                    <li class="my__hand my__card6">
+                        <p class="my__num my__hand__card__number6">6</p>
+                    </li>
+                    <li class="my__hand my__card7">
+                        <p class="my__num my__hand__card__number7">7</p>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="actions">
+                <p class="p__text">Действия: </p>
+                <button class="button disabled_b b1"><p onclick="sendPaletteCard()" class="b__text">Выложить карту <br>
+                                 в палитру </p></button>
+                <!-- ;setInterval(showGameInfoFunc, 3000) -->
+                <button class="button disabled_b b2"><p onclick="sendDropCard()" class="b__text">Выложить карту <br>
+                                на верх холста</p></button>
+                <button class="button disabled_b b3"><p onclick="sendDoubleDropCard()" class="b__text">Выложить карту <br>
+                                    туда и туда</p></button>
+                <button class="button disabled_b b4"><p onclick="sendPass()" class="b__text">Спасовать</p></button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="js/regist.js"></script>
+    <script type="text/javascript" src="js/mysql.js"></script>
+    <script type="text/javascript" src="js/actions.js"></script>
+</body>
+
+</html>
