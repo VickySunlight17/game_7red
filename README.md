@@ -18,4 +18,6 @@ Pass and lose. You must perform this action if you have no cards in your hand.
 
 you need to press the card and then press the button with action. If you need 2 cards one for palette and another for the canvas, you must first press card for palette and next for canvas.
 
+Rules for this game and the meanings of the colors of cards you can find here: https://hobbyworld.ru/download/rules/Red7-rules_web1.pdf
+
 Good luck!
