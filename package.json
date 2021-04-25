@@ -2,22 +2,27 @@
     "name": "game_7red",
     "version": "1.0.0",
     "description": "Собери комбинацию, пока правила не поменялись",
-    "main": "server.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "index.js",
+        "build:server": "tsc",
+        "build:client": "cd public/js && tsc",
+        "postinstall": "npm run build:server",
         "dev": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VickySunlight17/game_7red_test.git"
     },
     "keywords": [
         "node",
         "js"
     ],
     "author": "Victoria Potapenko <vicktoria702@gmail.com>",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
-        "body-parser": "^1.19.0",
-        "chalk": "^4.1.0",
-        "cors": "^2.8.5",
-        "ejs": "^3.1.6",
+
         "express": "^4.17.1",
         "mysql": "^2.18.1"
     },
