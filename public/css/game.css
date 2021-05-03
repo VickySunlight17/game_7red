@@ -1,0 +1,270 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #1C1C1C;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.opponent {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.hand__op {
+    max-width: 400px;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.card__op {
+    width: 74px;
+    height: 55px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #36A7E2;
+    float: left;
+}
+
+.number__op {
+    display: none;
+}
+
+.palette__op {
+    max-width: 400px;
+    height: 97px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.pal__op:last-child {
+    margin-right: 0;
+}
+
+.pal__op {
+    width: 45px;
+    height: 67px;
+    background: #9C51A0;
+    border-radius: 20px;
+    margin-right: 16px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    color: #1C1C1C;
+}
+
+.num {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+}
+
+.defence {
+    margin: 0 auto;
+    width: 108px;
+    height: 162px;
+    border-radius: 22px;
+    background-color: #DD2929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.defence__card {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 112px;
+    line-height: 131px;
+    color: #FFFFFF;
+}
+
+.my__space {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rule {
+    width: 230px;
+}
+
+.rule__box {
+    height: 134px;
+    width: 85%;
+    background: #36A7E2;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rule__box__text {
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.p__text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1C1C1C;
+    margin-bottom: 10px;
+}
+
+.actions {
+    width: 230px;
+}
+
+.my__game {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my__palette {
+    max-width: 600px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.my__pal {
+    width: 67px;
+    height: 100px;
+    background: #F6B417;
+    border-radius: 20px;
+    margin-right: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my__pal:last-child {
+    margin-right: 0;
+}
+
+.my__hand__cards {
+    max-width: 600px;
+    height: 81px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.my__hand {
+    margin-left: -20%;
+    width: 109px;
+    height: 162px;
+    border-radius: 20px;
+    background-color: #0FA858;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .6s;
+    transition-duration: .6s;
+}
+
+.my__hand:first-child {
+    margin-left: 0%;
+}
+
+.my__hand:hover {
+    cursor: pointer;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 4.09173px 18.4128px rgba(0, 0, 0, .13);
+    box-shadow: 0 4.09173px 18.4128px rgba(0, 0, 0, .13);
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+}
+
+.my__num {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #FFFFFF;
+    margin-left: 5px;
+    margin-bottom: 6px;
+}
+
+.button {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 85%;
+    height: 70px;
+    display: block;
+    color: rgb(27, 27, 27);
+    filter: drop-shadow(10px 8px 1px #000000);
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    outline: none;
+}
+
+.button:hover {
+    background-color: rgb(27, 27, 27);
+    color: rgb(255, 255, 255);
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.button:focus {
+    background-color: #070707;
+    color: rgb(255, 255, 255);
+    border: #000000;
+}
+
+.b__text {
+    text-align: center;
+    margin: 0px 0 0 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+}

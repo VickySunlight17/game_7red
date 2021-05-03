@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <title>7 red</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/game.css">
+    <link type="text/css" rel="stylesheet" href="css/shadow.css">
+
+</head>
+
+<body>
+
+    <!-- Комментарий -->
+    <div class="wrap_content">
+        <div class="red7">
+
+            <img class="red" src="imgs/logo.png" alt="7Red">
+            <!-- class="red" -->
+        </div>
+
+
+
+
+        <div id="enter_your_name" class="regist enter__name">
+            <p class="text-reg">
+                Введи свое имя, чтобы друзья могли тебя узнать!
+            </p>
+            <form name="regname" method="POST" action="/">
+                <input name="regname" type="text" class="input__name" autocomplete="on" placeholder="Имя...">
+            </form>
+
+            <button id="next" type="button"><p class="b-text">Далее</p>  </button>
+        </div>
+
+
+
+        <div id="enter_your_password" class="regist enter__password">
+            <p class="text-reg">
+                Введи пароль, чтобы никто не смог играть за тебя!
+            </p>
+            <form name="regpw" method="POST" action="/">
+                <input name="regpw" type="password" class="input__name" autocomplete="on" placeholder="Пароль...">
+                <!-- <button id="nextpw" type="submit"><p onclick="sendreg()" class="b-text">Далее</p>  </button> -->
+
+            </form>
+
+            <button id="nextpw" type="submit"><p onclick="sendreg()" class="b-text">Далее</p>  </button>
+        </div>
+
+        <div id="reg" class="regist choose_direction">
+            <p class="text-reg">
+                Начнем играть! Выбери свой вариант:</p>
+
+            <button id="create_game" type="button"><p onclick="createGame()" class="b-text">Создать игру</p>  </button>
+            <button id="enter_game" type="button"><p class="b-text">Войти в игру</p>  </button>
+            <button id="continue_game" type="button"><p onclick="continueGame()"  class="b-text">Продолжить игру</p>  </button>
+            <!-- onclick="showGameInfoFunc()" -->
+        </div>
+
+        <div id="code_n" class="regist code__game">
+            <p class="text-reg">
+                Это твой код! Отправь его своим друзьям!
+            </p>
+            <form name="myCode" method="POST" action="/">
+                <div name="myCode" class="code">?</div>
+            </form>
+            <form method="POST">
+                <a href="#"><button type="button" id="how_many_players"><p onclick="setTimeout(connectedPlayers, 3000)" class="b-text">Начать игру</p>  </button></a>
+            </form>
+        </div>
+
+        <div id="enterGame" class="regist enter__game">
+            <p class="text-reg">
+                Введи код, который скинул тебе твой друг!
+            </p>
+            <form name="enterYourCode" method="POST" action="/">
+                <input name="enterYourCode" type="text" class="input__name" placeholder="Код...">
+            </form>
+
+            <form>
+                <button id="NextName" type="button"><p onclick="connectGame()" class="b-text">Далее</p></button>
+            </form>
+
+        </div>
+
+        <div id="players_count" class="regist players_counts">
+            <p class="text-reg">
+                Список игроков:
+            </p>
+            <div class="current_players">
+
+            </div>
+
+            <p>Игра автоматически начнется, когда последний игрок войдет в игру!</p>
+        </div>
+
+
+
+
+    </div>
+
+
+    <div id="sh" class="shadow">
+        <div class="align__shadow">
+            <div class="shadow__text">
+                <p class="congrats">CONGRATULATIONS!</p>
+                <p class="you">You are the</p>
+                <p class="winner">WINNER!</p>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="div__buttons">
+
+            <button class="button button__end"><p onclick = "sendLogout()" class="b__text">Выйти из системы</p></button>
+        </div>
+    </div>
+
+    <div id="loser" class="shadow2">
+        <div class="align__shadow">
+            <div class="shadow__text">
+                <p class="congrats">OOPS!!</p>
+                <p class="you">You are the</p>
+                <p class="winner">LOSER!</p>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="div__buttons">
+
+            <button class="button button__end"><p onclick = "sendLogout()" class="b__text">Выйти из системы</p></button>
+        </div>
+    </div>
+
+    <div class="shadow_box">
+
+        <div class="warning_box">
+            <span class="ops_text">Oops, error!</span>
+            <div class="warning_box__warning_text">
+
+                <p class="warning_text">
+                    Ой! Кажется, ты не лидируешь по заданному правилу! Скорее меняй карту!
+                </p>
+
+            </div>
+            <button class="warning_button"><p onclick="hideWarning()" class="b__text" >OK</p></button>
+        </div>
+    </div>
+
+    <!-- НАЧАЛО ВХОДА В ИГРУ -->
+
+    <div class="wrapper">
+
+
+
+        <div class="opponent opponent1 players2">
+
+            <ul class="hand__op">
+                <li class="card__op card1__opponent">
+                    <p class="number__op card__number1">1</p>
+                </li>
+                <li class="card__op card2__opponent">
+                    <p class="number__op card__number2">2</p>
+                </li>
+                <li class="card__op card3__opponent">
+                    <p class="number__op card__number3">3</p>
+                </li>
+                <li class="card__op card4__opponent">
+                    <p class="number__op card__number4">4</p>
+                </li>
+                <li class="card__op card5__opponent">
+                    <p class="number__op card__number5">5</p>
+                </li>
+                <li class="card__op card6__opponent">
+                    <p class="number__op card__number6">6</p>
+                </li>
+                <li class="card__op card7__opponent">
+                    <p class="number__op card__number7">7</p>
+                </li>
+            </ul>
+
+
+
+            <p class="name opName1">Aleksei</p>
+
+            <ul class="palette__op">
+                <li class="pal__op palette__opponent1">
+                    <p class="num op__card__number1">1</p>
+                </li>
+                <li class="pal__op palette__opponent2">
+                    <p class="num op__card__number2">2</p>
+                </li>
+                <li class="pal__op palette__opponent3">
+                    <p class="num op__card__number3">3</p>
+                </li>
+                <li class="pal__op palette__opponent4">
+                    <p class="num op__card__number4">4</p>
+                </li>
+                <li class="pal__op palette__opponent5">
+                    <p class="num op__card__number5">5</p>
+                </li>
+                <li class="pal__op palette__opponent6">
+                    <p class="num op__card__number6">6</p>
+                </li>
+                <li class="pal__op palette__opponent7">
+                    <p class="num op__card__number7">7</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="defence">
+            <p class="defence__card">7</p>
+        </div>
+
+        <div class="my__space">
+            <div class="rule">
+
+                <p class="p__text">Действующее правило: </p>
+                <div class="rule__box">
+                    <p class="rule__box__text"><span class="color_of_rule">Голубое</span> правило:
+                        <br> <span class="the_Rule">Больше всего <br> карт разных цветов</span></p>
+
+                </div>
+            </div>
+
+
+            <div class="my__game">
+
+                <p class="name">Ваша палитра </p>
+
+                <ul class="my__palette">
+                    <li class="my__pal my__palette1">
+                        <p class="num my__card__number1">1</p>
+                    </li>
+                    <li class="my__pal my__palette2">
+                        <p class="num my__card__number2">2</p>
+                    </li>
+                    <li class="my__pal my__palette3">
+                        <p class="num my__card__number3">3</p>
+                    </li>
+                    <li class="my__pal my__palette4">
+                        <p class="num my__card__number4">4</p>
+                    </li>
+                    <li class="my__pal my__palette5">
+                        <p class="num my__card__number5">5</p>
+                    </li>
+                    <li class="my__pal my__palette6">
+                        <p class="num my__card__number6">6</p>
+                    </li>
+                    <li class="my__pal my__palette7">
+                        <p class="num my__card__number7">7</p>
+                    </li>
+                </ul>
+
+                <p class="name myName">?</p>
+
+                <ul class="my__hand__cards">
+                    <li class="my__hand my__card1">
+                        <p class="my__num my__hand__card__number1">1</p>
+                    </li>
+                    <li class="my__hand my__card2">
+                        <p class="my__num my__hand__card__number2">2</p>
+                    </li>
+                    <li class="my__hand my__card3">
+                        <p class="my__num my__hand__card__number3">3</p>
+                    </li>
+                    <li class="my__hand my__card4">
+                        <p class="my__num my__hand__card__number4">4</p>
+                    </li>
+                    <li class="my__hand my__card5">
+                        <p class="my__num my__hand__card__number5">5</p>
+                    </li>
+                    <li class="my__hand my__card6">
+                        <p class="my__num my__hand__card__number6">6</p>
+                    </li>
+                    <li class="my__hand my__card7">
+                        <p class="my__num my__hand__card__number7">7</p>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="actions">
+                <p class="p__text">Действия: </p>
+                <button class="button disabled_b b1"><p onclick="sendPaletteCard()" class="b__text">Выложить карту <br>
+                                 в палитру </p></button>
+                <!-- ;setInterval(showGameInfoFunc, 3000) -->
+                <button class="button disabled_b b2"><p onclick="sendDropCard()" class="b__text">Выложить карту <br>
+                                на верх холста</p></button>
+                <button class="button disabled_b b3"><p onclick="sendDoubleDropCard()" class="b__text">Выложить карту <br>
+                                    туда и туда</p></button>
+                <button class="button disabled_b b4"><p onclick="sendPass()" class="b__text">Спасовать</p></button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/regist.js"></script>
+    <script type="text/javascript" src="js/mysql.js"></script>
+</body>
+
+</html>
